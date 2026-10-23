@@ -35594,6 +35594,9 @@ export const RawMapObjectDefs: Record<string, MapObjectDef> = {
         type: "decal",
         collision: collider.createCircle(v2.create(0, 0), 1),
         height: 0,
+
+        //Add lifetime for decal explosion
+        lifetime: { min: 10, max: 15 },
         img: {
             sprite: "map-barrel-res-01.img",
             scale: 0.24,
@@ -35605,7 +35608,8 @@ export const RawMapObjectDefs: Record<string, MapObjectDef> = {
     decal_frag_explosion: {
         type: "decal",
         collision: collider.createCircle(v2.create(0, 0), 1),
-        height: 0,
+        height: 0,        
+        lifetime: {min: 3, max: 6},
         img: {
             sprite: "map-barrel-res-01.img",
             scale: 0.2,
@@ -35618,6 +35622,7 @@ export const RawMapObjectDefs: Record<string, MapObjectDef> = {
         type: "decal",
         collision: collider.createCircle(v2.create(0, 0), 1),
         height: 0,
+        lifetime: {min: 3, max: 6},
         img: {
             sprite: "map-barrel-res-01.img",
             scale: 0.12,

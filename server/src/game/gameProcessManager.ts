@@ -544,9 +544,15 @@ export class GameProcessManager {
             return undefined;
         }
 
+        //A join that targets an exisitng match 
+        //must not change that match's fill setting. No fill only applies
+        //when a party creates a new match; 
+        //lobbies started with Fill off are already locked at creation time
+        const autoFill = rejoinTarget ? true : body.autoFill;
+
         proc.addJoinTokens(
             body.playerData,
-            body.autoFill,
+            autoFill,
             validateSquadName(body.squadName),
         );
         const tokensApplied = await proc.waitForJoinTokens(body.playerData.length);
